@@ -177,7 +177,7 @@ class BND4Entry {
         var _slot_occupancy = {}
         var data = new Uint8Array(this._decrypted_data);
         for (var i = 0; i < 10; i++) {
-            if (data[892 + (496 * i)] != 0) {
+            // if (data[892 + (496 * i)] != 0) {
                 var name_offset = 1286 + (496 * i);
                 var name_bytes = this._decrypted_data.slice(name_offset, name_offset + (14 * 2));
 
@@ -188,7 +188,7 @@ class BND4Entry {
                 }
 
                 _slot_occupancy[i + 1] = new TextDecoder('utf-16').decode(name_bytes);
-            }
+            // }
         }
 
         console.log("ds2_get_slot_occupancy() returning: " + JSON.stringify(_slot_occupancy));
